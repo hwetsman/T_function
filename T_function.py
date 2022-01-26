@@ -86,6 +86,7 @@ if l > 1:
     fig, ax = plt.subplots()
     plt.figure(figsize=(6, 3))
     ax.scatter(x_array, pop)
+    ax.set_ylim(0, 330)
     st.pyplot(fig)
     if pop[-1] < 1:
         st.write('And no one was left to see the credits')
