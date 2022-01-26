@@ -30,6 +30,7 @@ exit = st.sidebar.slider('Initial Number of People to Leave',
 dist = np.random.normal(mean, sd, N)
 dist = [int(x) for x in dist]
 dist = np.array(dist)
+
 # display normal curve
 fig, ax = plt.subplots()
 plt.figure(figsize=(2, 4))
@@ -44,10 +45,25 @@ df = pd.DataFrame(df.groupby('T').size())
 df.rename({0: 'Count'}, inplace=True, axis=1)
 df.reset_index(inplace=True, drop=False)
 print(df)
-# print(array)
+
 # calculate steps of exit
-# pop = []
-# while N > 0:
+pop = [N]  # create empty list to addend
+while N > 0:
+    # is current exit > df.index.min()
+    # if so, get count for df.index <= exit
+    #df = df[df.index>exit]
+    # N=N-count
+    # pop.append(N)
+    #exit = exit + count
 
+    # if not
+    #print("No one leaves. Enjoy the movie!")
+    # break
 
-# display exit graph
+    # display exit graph
+    #l = len(pop)
+    # x=np.arange(0,l+1,1)
+    #fig, ax = plt.subplots()
+    #plt.figure(figsize=(6, 3))
+    # plt.scatter(x,pop)
+    # st.pyplot
