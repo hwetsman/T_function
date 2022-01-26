@@ -53,25 +53,25 @@ print(df)
 
 # calculate steps of exit
 pop = [N]  # create empty list to addend
-st.write('starting pop', N)
-st.write('first exit', exit)
-st.write('________________-')
+#st.write('starting pop', N)
+#st.write('first exit', exit)
+# st.write('________________-')
 count = 0
 while N > 0:
-    st.write(count, 'pop left', N)
-    st.write('Threshold min', df['T'].min())
+    #st.write(count, 'pop left', N)
+    #st.write('Threshold min', df['T'].min())
     if exit > df['T'].min():
         temp = df[df['T'] <= exit]
         df = df[df['T'] > exit]
         sum = temp.Count.sum()
-        st.write('leaving', sum)
+        #st.write('leaving', sum)
         N = N-sum
-        st.write('pop left', N)
+        #st.write('pop left', N)
         pop.append(N)
         print(pop)
         exit = exit + sum
-        st.write('exited', exit)
-        st.write('min threshold', df['T'].min())
+        #st.write('exited', exit)
+        #st.write('min threshold', df['T'].min())
         count = count + 1
     else:
         st.write("No one leaves. Enjoy the movie!")
@@ -82,7 +82,8 @@ l = len(pop)
 print(l)
 x_array = np.arange(0, l, 1)
 print(x_array)
-fig, ax = plt.subplots()
-plt.figure(figsize=(6, 3))
-ax.scatter(x_array, pop)
-st.pyplot(fig)
+if l > 1:
+    fig, ax = plt.subplots()
+    plt.figure(figsize=(6, 3))
+    ax.scatter(x_array, pop)
+    st.pyplot(fig)
