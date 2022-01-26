@@ -78,9 +78,11 @@ while N > 0:
         break
 
 # display exit graph
-# l = len(pop)
-# x = np.arange(0, l, 1)
-# fig, ax = plt.subplots()
-# plt.figure(figsize=(6, 3))
-# ax.scatter(x, pop)
-# st.pyplot
+l = len(pop)
+print(l)
+x_array = np.arange(0, l, 1)
+print(x_array)
+fig, ax = plt.subplots()
+plt.figure(figsize=(6, 3))
+ax.scatter(x_array, pop)
+st.pyplot(fig)
