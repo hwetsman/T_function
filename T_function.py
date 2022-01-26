@@ -21,8 +21,8 @@ N = 330
 st.sidebar.radio('Distribution of T', ['Normal'])
 # set up streamlit selection of normal curve by input mean and sd
 mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
-                         max_value=100, value=50, step=1)
-sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=20, value=5, step=1)
+                         max_value=50, value=25, step=1)
+sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=15, value=5, step=1)
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
                          min_value=1, max_value=5, value=1, step=1)
@@ -90,6 +90,6 @@ if l > 1:
     if pop[-1] < 1:
         st.write('And no one was left to see the credits')
     else:
-        st.write('And then it settles down. Enjoy the rest of your movie.')
+        st.write(f'And then it settles down. The other {pop[-1]} people enjoy the movie.')
 else:
     st.write('No one leaves. Enjoy the movie!')
