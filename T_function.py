@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+import pandas as pd
 
 
 # set up streamlit welcome
@@ -23,11 +24,13 @@ mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
                          max_value=100, value=50, step=1)
 sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=20, value=5, step=1)
 # set up streamlit selection of initial number to leave
-st.sidebar.slider('Initial Number of People to Leave', min_value=1, max_value=5, value=1, step=1)
+exit = st.sidebar.slider('Initial Number of People to Leave',
+                         min_value=1, max_value=5, value=1, step=1)
 # set up production of normal curve
 dist = np.random.normal(mean, sd, N)
 dist = [int(x) for x in dist]
 dist = np.array(dist)
+# display normal curve
 fig, ax = plt.subplots()
 plt.figure(figsize=(2, 4))
 step = 2
@@ -35,6 +38,16 @@ bins = np.arange(dist.min(), dist.max()+step, step)
 ax.hist(dist, bins=bins)
 st.sidebar.pyplot(fig)
 
-# display normal curve
+# create df of population
+df = pd.DataFrame({'T': dist})
+df = pd.DataFrame(df.groupby('T').size())
+df.rename({0: 'Count'}, inplace=True, axis=1)
+df.reset_index(inplace=True, drop=False)
+print(df)
+# print(array)
 # calculate steps of exit
+# pop = []
+# while N > 0:
+
+
 # display exit graph
