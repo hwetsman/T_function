@@ -16,6 +16,8 @@ T is distributed in the population and the original number of exiting people. Th
 script will plot the population exit. Later, other distributions will be added.')
 # set up population of 330
 N = 330
+# select normal
+st.sidebar.radio('Distribution of T', ['Normal'])
 # set up streamlit selection of normal curve by input mean and sd
 st.sidebar.slider('Mean of Normal Distribution', min_value=10, max_value=100, value=50, step=1)
 # set up streamlit selection of initial number to leave
