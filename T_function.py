@@ -20,6 +20,7 @@ N = 330
 st.sidebar.radio('Distribution of T', ['Normal'])
 # set up streamlit selection of normal curve by input mean and sd
 st.sidebar.slider('Mean of Normal Distribution', min_value=10, max_value=100, value=50, step=1)
+st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=20, value=5, step=1)
 # set up streamlit selection of initial number to leave
 # set up production of normal curve
 # display normal curve
