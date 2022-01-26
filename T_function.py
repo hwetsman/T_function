@@ -74,7 +74,7 @@ while N > 0:
         #st.write('min threshold', df['T'].min())
         count = count + 1
     else:
-        st.write("No one leaves. Enjoy the movie!")
+        # st.write("No one leaves. Enjoy the movie!")
         break
 
 # display exit graph
@@ -87,3 +87,9 @@ if l > 1:
     plt.figure(figsize=(6, 3))
     ax.scatter(x_array, pop)
     st.pyplot(fig)
+    if pop[-1] < 1:
+        st.write('And no one was left to see the credits')
+    else:
+        st.write('And then it settles down. Enjoy the rest of your movie.')
+else:
+    st.write('No one leaves. Enjoy the movie!')
