@@ -27,7 +27,13 @@ st.sidebar.slider('Initial Number of People to Leave', min_value=1, max_value=5,
 # set up production of normal curve
 dist = np.random.normal(mean, sd, N)
 dist = [int(x) for x in dist]
-st.write(dist)
+dist = np.array(dist)
+fig, ax = plt.subplots()
+plt.figure(figsize=(2, 4))
+step = 2
+bins = np.arange(dist.min(), dist.max()+step, step)
+ax.hist(dist, bins=bins)
+st.sidebar.pyplot(fig)
 
 # display normal curve
 # calculate steps of exit
