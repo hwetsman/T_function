@@ -30,6 +30,11 @@ exit = st.sidebar.slider('Initial Number of People to Leave',
 dist = np.random.normal(mean, sd, N)
 dist = [int(x) for x in dist]
 dist = np.array(dist)
+# get rid of negative values
+if dist.min() < 0:
+    add = abs(dist.min())
+    dist = [x+add for x in dist]
+    dist = np.array(dist)
 
 # display normal curve
 fig, ax = plt.subplots()
