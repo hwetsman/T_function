@@ -54,15 +54,16 @@ print(df)
 # calculate steps of exit
 pop = [N]  # create empty list to addend
 while N > 0:
-    print(df['T'].min())
+    print('df['T'].min()', df['T'].min())
     if exit > df['T'].min():
-        temp = df[dft['T'] <= exit]
+        temp = df[df['T'] <= exit]
         df = df[df['T'] > exit]
         sum = temp.Count.sum()
-        print(sum)
+        print('sum', sum)
         N = N-sum
         pop.append(N)
         exit = exit + sum
+        st.write('Well someone does not like it in here')
     else:
         st.write("No one leaves. Enjoy the movie!")
         break
