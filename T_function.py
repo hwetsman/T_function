@@ -15,6 +15,7 @@ exiting people is reached. You may select the form of a normal function by which
 T is distributed in the population and the original number of exiting people. The \
 script will plot the population exit. Later, other distributions will be added.')
 # set up population of 330
+N = 330
 # set up streamlit selection of normal curve by input mean and sd
 # set up streamlit selection of initial number to leave
 # set up production of normal curve
