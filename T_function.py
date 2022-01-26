@@ -32,7 +32,7 @@ dist = [int(x) for x in dist]
 dist = np.array(dist)
 # get rid of negative values
 if dist.min() < 0:
-    add = abs(dist.min())
+    add = abs(dist.min())+1
     dist = [x+add for x in dist]
     dist = np.array(dist)
 
@@ -54,7 +54,7 @@ print(df)
 # calculate steps of exit
 pop = [N]  # create empty list to addend
 while N > 0:
-    print('df['T'].min()', df['T'].min())
+    print('Threshold min', df['T'].min())
     if exit > df['T'].min():
         temp = df[df['T'] <= exit]
         df = df[df['T'] > exit]
