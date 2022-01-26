@@ -49,21 +49,23 @@ print(df)
 # calculate steps of exit
 pop = [N]  # create empty list to addend
 while N > 0:
-    # is current exit > df.index.min()
-    # if so, get count for df.index <= exit
-    #df = df[df.index>exit]
-    # N=N-count
-    # pop.append(N)
-    #exit = exit + count
+    print(df['T'].min())
+    if exit > df['T'].min():
+        temp = df[dft['T'] <= exit]
+        df = df[df['T'] > exit]
+        sum = temp.Count.sum()
+        print(sum)
+        N = N-sum
+        pop.append(N)
+        exit = exit + sum
+    else:
+        st.write("No one leaves. Enjoy the movie!")
+        break
 
-    # if not
-    #print("No one leaves. Enjoy the movie!")
-    # break
-
-    # display exit graph
-    #l = len(pop)
-    # x=np.arange(0,l+1,1)
-    #fig, ax = plt.subplots()
-    #plt.figure(figsize=(6, 3))
-    # plt.scatter(x,pop)
-    # st.pyplot
+# display exit graph
+#l = len(pop)
+# x=np.arange(0,l+1,1)
+#fig, ax = plt.subplots()
+#plt.figure(figsize=(6, 3))
+# plt.scatter(x,pop)
+# st.pyplot
