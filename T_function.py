@@ -23,13 +23,15 @@ N = 330
 dist_type = st.sidebar.radio('Distribution of T', ['Normal', 'Pareto'])
 
 if dist_type == 'Normal':
+    step = 1
     # set up streamlit selection of normal curve by input mean and sd
     mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
                              max_value=50, value=25, step=1)
-    sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=15, value=5, step=1)
-    # set up streamlit selection of initial number to leave
-    exit = st.sidebar.slider('Initial Number of People to Leave',
-                             min_value=1, max_value=5, value=1, step=1)
+    sd = st.sidebar.slider('sd of Normal Distribution', min_value=1,
+                           max_value=15, value=5, step=step)
+    # # set up streamlit selection of initial number to leave
+    # exit = st.sidebar.slider('Initial Number of People to Leave',
+    #                          min_value=1, max_value=5, value=1, step=1)
     # set up production of normal curve
     dist = np.random.normal(mean, sd, N)
     dist = [int(x) for x in dist]
@@ -39,10 +41,10 @@ if dist_type == 'Normal':
         add = abs(dist.min())+1
         dist = [x+add for x in dist]
         dist = np.array(dist)
-
 # set up pareto dist
-if dist_type == 'Pareto':
-    alpha = st.sidebar.slider('Alpha (shape)', min_value=1.0, max_value=5.0, value=3.0, step=.1)
+elif dist_type == 'Pareto':
+    step = .1
+    alpha = st.sidebar.slider('Alpha (shape)', min_value=1.0, max_value=5.0, value=3.0, step=step)
     dist = np.random.pareto(alpha, N)
     dist = [int(x) for x in dist]
     dist = np.array(dist)
@@ -64,7 +66,7 @@ fig = plt.figure()
 #     st.pyplot(fig)
 
 plt.title('Distribution of T in Population')
-step = 2
+# step = 2
 bins = np.arange(dist.min(), dist.max()+step, step)
 plt.hist(dist, bins=bins)
 plt.xlabel('Threshold')
