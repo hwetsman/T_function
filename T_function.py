@@ -57,17 +57,7 @@ exit = st.sidebar.slider('Initial Number of People to Leave',
 # display dist curve
 fig, ax = plt.subplots()
 fig = plt.figure()
-
-# fig = plt.figure(figsize = (10, 5))
-#
-#     plt.bar(Courses, values)
-#     plt.xlabel("Programming Environment")
-#     plt.ylabel("Number of Students")
-#     plt.title("Students enrolled in different courses")
-#     st.pyplot(fig)
-
 plt.title('Distribution of T in Population')
-# step = 2
 bins = np.arange(dist.min(), dist.max()+step, step)
 plt.hist(dist, bins=bins)
 plt.xlabel('Threshold')
