@@ -21,22 +21,24 @@ Later, other distributions will be added.')
 N = 330
 # select normal
 dist_type = st.sidebar.radio('Distribution of T', ['Normal'])
-# set up streamlit selection of normal curve by input mean and sd
-mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
-                         max_value=50, value=25, step=1)
-sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=15, value=5, step=1)
-# set up streamlit selection of initial number to leave
-exit = st.sidebar.slider('Initial Number of People to Leave',
-                         min_value=1, max_value=5, value=1, step=1)
-# set up production of normal curve
-dist = np.random.normal(mean, sd, N)
-dist = [int(x) for x in dist]
-dist = np.array(dist)
-# get rid of negative values
-if dist.min() < 0:
-    add = abs(dist.min())+1
-    dist = [x+add for x in dist]
+
+if dist_type == 'Normal':
+    # set up streamlit selection of normal curve by input mean and sd
+    mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
+                             max_value=50, value=25, step=1)
+    sd = st.sidebar.slider('sd of Normal Distribution', min_value=1, max_value=15, value=5, step=1)
+    # set up streamlit selection of initial number to leave
+    exit = st.sidebar.slider('Initial Number of People to Leave',
+                             min_value=1, max_value=5, value=1, step=1)
+    # set up production of normal curve
+    dist = np.random.normal(mean, sd, N)
+    dist = [int(x) for x in dist]
     dist = np.array(dist)
+    # get rid of negative values
+    if dist.min() < 0:
+        add = abs(dist.min())+1
+        dist = [x+add for x in dist]
+        dist = np.array(dist)
 
 # display normal curve
 fig, ax = plt.subplots()
