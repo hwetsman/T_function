@@ -45,8 +45,9 @@ if dist_type == 'Normal':
 elif dist_type == 'Pareto':
     step = .1
     alpha = st.sidebar.slider('Alpha (shape)', min_value=1.0, max_value=5.0, value=3.0, step=step)
+    min = st.sidebar.slider('Minimum Sensitivity', min_value=1, max_value=5, value=1, step=1)
     dist = np.random.pareto(alpha, N)
-    dist = [int(x) for x in dist]
+    dist = [int(x)+min for x in dist]
     dist = np.array(dist)
 
 # set up streamlit selection of initial number to leave
