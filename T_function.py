@@ -20,7 +20,7 @@ Later, other distributions will be added.')
 # set up population of 330
 N = 330
 # select normal
-dist_type = st.sidebar.radio('Distribution of T', ['Normal'])
+dist_type = st.sidebar.radio('Distribution of T', ['Normal', 'Pareto'])
 
 if dist_type == 'Normal':
     # set up streamlit selection of normal curve by input mean and sd
@@ -39,8 +39,13 @@ if dist_type == 'Normal':
         add = abs(dist.min())+1
         dist = [x+add for x in dist]
         dist = np.array(dist)
+
+# set up pareto dist
 if dist_type == 'Pareto':
-    alpha = st.sidebar.slider('Alpha (shape)', min_value=1, max_value=5, value=3, step=.1)
+    alpha = st.sidebar.slider('Alpha (shape)', min_value=1.0, max_value=5.0, value=3.0, step=.1)
+    dist = np.random.pareto(alpha, N)
+    dist = [int(x) for x in dist]
+    dist = np.array(dist)
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
