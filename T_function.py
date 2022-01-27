@@ -42,10 +42,21 @@ if dist_type == 'Normal':
 
 # display normal curve
 fig, ax = plt.subplots()
-plt.figure(figsize=(2, 4))
+fig = plt.figure()
+
+# fig = plt.figure(figsize = (10, 5))
+#
+#     plt.bar(Courses, values)
+#     plt.xlabel("Programming Environment")
+#     plt.ylabel("Number of Students")
+#     plt.title("Students enrolled in different courses")
+#     st.pyplot(fig)
+
+plt.title('Distribution of T in Population')
 step = 2
 bins = np.arange(dist.min(), dist.max()+step, step)
-ax.hist(dist, bins=bins)
+plt.hist(dist, bins=bins)
+plt.xlabel('Threshold')
 st.sidebar.pyplot(fig)
 
 # create df of population
@@ -77,13 +88,20 @@ print(l)
 x_array = np.arange(0, l, 1)
 print(x_array)
 if l > 1:
-    fig, ax = plt.subplots()
-    plt.figure(figsize=(6, 3))
-    ax.scatter(x_array, pop)
-    ax.set_ylim(0, 330)
-    st.pyplot(fig)
+    # fig = plt.figure(5,3)
+    fig2, ax2 = plt.subplots()
+    # fig = plt.figure(3,3)
+    # fig = plt.figure(figsize=(3, 3))
+    ax2.scatter(x_array, pop)
+    ax2.set_ylim(0, 330)
+    plt.title('Population Remaining by Reaction Step')
+    plt.ylabel('Population Remaining')
+    plt.xlabel('Reaction Step')
+    plt.xticks(x_array)
+    st.pyplot(fig2)
     if pop[-1] < 1:
         st.write('And no one was left to see the credits')
+        st.write('--------------------------------------')
     else:
         st.write(f'And then it settles down. The other {pop[-1]} people enjoy the movie.')
 else:
