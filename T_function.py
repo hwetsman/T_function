@@ -39,8 +39,14 @@ if dist_type == 'Normal':
         add = abs(dist.min())+1
         dist = [x+add for x in dist]
         dist = np.array(dist)
+if dist_type == 'Pareto':
+    alpha = st.sidebar.slider('Alpha (shape)', min_value=1, max_value=5, value=3, step=.1)
 
-# display normal curve
+# set up streamlit selection of initial number to leave
+exit = st.sidebar.slider('Initial Number of People to Leave',
+                         min_value=1, max_value=5, value=1, step=1)
+
+# display dist curve
 fig, ax = plt.subplots()
 fig = plt.figure()
 
