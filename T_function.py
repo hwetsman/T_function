@@ -74,7 +74,9 @@ print(df)
 pop = [N]  # create empty list to addend
 count = 0
 while N > 0:
-    if exit > df['T'].min():
+    # st.write(N, exit, df['T'].min())
+    if exit >= df['T'].min():
+        # st.write(df['T'].min(), exit)
         temp = df[df['T'] <= exit]
         df = df[df['T'] > exit]
         sum = temp.Count.sum()
