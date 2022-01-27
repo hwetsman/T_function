@@ -7,14 +7,16 @@ import pandas as pd
 
 
 # set up streamlit welcome
-st.write('Welcome to the Threshold Function simulator. The Threshold Function is \
-a theoretical construct in population science. The paradigm this simulator is based \
-on is the crowded theatre. Imagine a theatre of 330 people. Suddenly some number \
-of people get up and leave. Everyone sees them leave. Depending on some threshold, \
-T, which each individual has, each individual will react once their T of quickly \
-exiting people is reached. You may select the form of a normal function by which \
-T is distributed in the population and the original number of exiting people. The \
-script will plot the population exit. Later, other distributions will be added.')
+st.markdown('**Welcome to the Threshold Function simulator.** \
+Imagine everyone has a quality called threshold (T). Not everyone\'s T is the \
+same. T is distributed through the population according to some distribution. This \
+simulator assumes T is normally distributed in a population of 330 people in a \
+movie theatre. T, in this case, is their threshold for running out of the \
+theatre without knowing why just because others do. If one person got up and ran \
+out, would you? What if five got up and ran? 10? What\'s your T? You may select \
+the form of a normal function by which T is distributed in the population and \
+the original number of exiting people. The script will plot the population exit. \
+Later, other distributions will be added.')
 # set up population of 330
 N = 330
 # select normal
