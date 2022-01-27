@@ -20,7 +20,7 @@ Later, other distributions will be added.')
 # set up population of 330
 N = 330
 # select normal
-st.sidebar.radio('Distribution of T', ['Normal'])
+dist_type = st.sidebar.radio('Distribution of T', ['Normal'])
 # set up streamlit selection of normal curve by input mean and sd
 mean = st.sidebar.slider('Mean of Normal Distribution', min_value=10,
                          max_value=50, value=25, step=1)
