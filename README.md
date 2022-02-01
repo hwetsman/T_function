@@ -28,9 +28,11 @@ then a couple more, and suddenly, everyone.
 ![Example Illustration](/Example.jpg)
 
 ## Use
-clone the repo
-set up your venv
-`pip3 install -r requirements.txt`
-`streamlit run T_function.py`
+clone the repo,
+
+set up your venv,
+
+then:
+`pip3 install -r requirements.txt` and `streamlit run T_function.py`
 
 Enjoy!
