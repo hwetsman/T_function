@@ -51,7 +51,7 @@ elif dist_type == 'Pareto':
     dist = np.array(dist)
 elif dist_type == 'Random(1-N)':
     step = 1
-    dist = np.randint(1, N+1, N)
+    dist = np.random.randint(1, N+1, N)
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
