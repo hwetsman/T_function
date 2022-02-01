@@ -28,7 +28,9 @@ then a couple more, and suddenly, everyone.
 ![Example Illustration](/Example.jpg)
 
 ## Use
-install streamlit, download the repo, and 
+clone the repo
+set up your venv
+`pip3 install -r requirements.txt`
 `streamlit run T_function.py`
 
 Enjoy!
