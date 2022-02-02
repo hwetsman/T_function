@@ -111,7 +111,10 @@ if l > 1:
     plt.title('Population Remaining by Reaction Step')
     plt.ylabel('Population Remaining')
     plt.xlabel('Reaction Step')
-    plt.xticks(x_array)
+    if x_array.size > 15:
+        plt.xticks(np.array([x for x in x_array if x % 2 == 0]))
+    else:
+        plt.xticks(x_array)
     st.pyplot(fig2)
     if pop[-1] < 1:
         st.write('And no one was left to see the credits')
