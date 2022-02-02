@@ -35,4 +35,7 @@ set up your venv,
 then:
 `pip3 install -r requirements.txt` and `streamlit run T_function.py`
 
+Streamlit will open a browser page and show you the simulator. Choose the variables you want. 
+Press 'r' to make the simulator run again with the same variables.
+
 Enjoy!
