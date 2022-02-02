@@ -102,7 +102,7 @@ if l > 1:
     # fig2 = plt.figure(2, 2)
     # fig2 = plt.figure(figsize=(2, 2))
     ax2.scatter(x_array, pop, s=5)
-    ax2.set_ylim(0, 335)
+    ax2.set_ylim(-5, 335)
     plt.title('Population Remaining by Reaction Step')
     plt.ylabel('Population Remaining')
     plt.xlabel('Reaction Step')
