@@ -56,12 +56,14 @@ elif dist_type == 'Random(1-N)':
     step = 1
     dist = np.random.randint(min_t, max_t+1, N)
 elif dist_type == "Lognormal":
-    step = .1
-    mean = st.sidebar.slider('Mean of Underlying Normal Distribution', min_value=10,
-                             max_value=50, value=25, step=1)
+    step = 5
+    mean = st.sidebar.slider('Mean of Underlying Normal Distribution', min_value=1,
+                             max_value=10, value=5, step=1)
     sd = st.sidebar.slider('sd of Underlying Normal Distribution', min_value=1,
-                           max_value=15, value=5, step=1)
+                           max_value=3, value=2, step=1)
     dist = np.random.lognormal(mean, sd, N)
+    dist = np.array([int(x)+1 for x in dist])
+    st.write(dist)
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
@@ -77,6 +79,7 @@ plt.hist(dist, bins=bins, color='b')
 plt.xlabel('Threshold')
 st.sidebar.pyplot(fig)
 
+st.write('Got to this point')
 # create df of population
 df = pd.DataFrame({'T': dist})
 df = pd.DataFrame(df.groupby('T').size())
