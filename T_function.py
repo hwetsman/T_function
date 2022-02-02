@@ -49,9 +49,12 @@ elif dist_type == 'Pareto':
     dist = np.random.pareto(alpha, N)
     dist = [int(x)+min for x in dist]
     dist = np.array(dist)
+# set up Randint dist
 elif dist_type == 'Random(1-N)':
+    max_t = st.sidebar.slider('Max T', min_value=2, max_value=N, value=int(N/2), step=1)
+    min_t = st.sidebar.slider('Min T', min_value=1, max_value=5, value=1, step=1)
     step = 1
-    dist = np.random.randint(1, N+1, N)
+    dist = np.random.randint(min_t, max_t+1, N)
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
