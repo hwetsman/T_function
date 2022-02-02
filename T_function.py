@@ -58,11 +58,12 @@ exit = st.sidebar.slider('Initial Number of People to Leave',
                          min_value=1, max_value=5, value=1, step=1)
 
 # display dist curve
+sns.set_style("white")
 fig, ax = plt.subplots()
 fig = plt.figure()
 plt.title('Distribution of T in Population')
 bins = np.arange(dist.min(), dist.max()+step, step)
-plt.hist(dist, bins=bins)
+plt.hist(dist, bins=bins, color='b')
 plt.xlabel('Threshold')
 st.sidebar.pyplot(fig)
 
@@ -98,10 +99,11 @@ x_array = np.arange(0, l, 1)
 print(x_array)
 if l > 1:
     # fig = plt.figure(5,3)
+    sns.set_style("darkgrid")
     fig2, ax2 = plt.subplots(figsize=(5, 2))
     # fig2 = plt.figure(2, 2)
     # fig2 = plt.figure(figsize=(2, 2))
-    ax2.scatter(x_array, pop, s=5)
+    ax2.scatter(x_array, pop, s=5, c='b')
     ax2.set_ylim(-5, 335)
     plt.title('Population Remaining by Reaction Step')
     plt.ylabel('Population Remaining')
