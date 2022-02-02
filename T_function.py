@@ -20,7 +20,7 @@ Later, other distributions will be added.')
 # set up population of 330
 N = 330
 # select normal
-dist_type = st.sidebar.radio('Distribution of T', ['Normal', 'Pareto', 'Random(1-N)'])
+dist_type = st.sidebar.radio('Distribution of T', ['Normal', 'Pareto', 'Lognormal', 'Random(1-N)'])
 
 if dist_type == 'Normal':
     step = 1
@@ -55,6 +55,13 @@ elif dist_type == 'Random(1-N)':
     min_t = st.sidebar.slider('Min T', min_value=1, max_value=5, value=1, step=1)
     step = 1
     dist = np.random.randint(min_t, max_t+1, N)
+elif dist_type == "Lognormal":
+    step = .1
+    mean = st.sidebar.slider('Mean of Underlying Normal Distribution', min_value=10,
+                             max_value=50, value=25, step=1)
+    sd = st.sidebar.slider('sd of Underlying Normal Distribution', min_value=1,
+                           max_value=15, value=5, step=1)
+    dist = np.random.lognormal(mean, sd, N)
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
