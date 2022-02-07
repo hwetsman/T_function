@@ -64,8 +64,8 @@ elif dist_type == "Chisquare":
     #                        max_value=3, value=2, step=1)
     dist = np.random.chisquare(k, size=N)
     dist = np.array([int(x)+1 for x in dist])
-    st.write(dist)
-    st.write(dist.min(), dist.max())
+    # st.write(dist)
+    # st.write(dist.min(), dist.max())
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
