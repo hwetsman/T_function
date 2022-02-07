@@ -20,7 +20,8 @@ Later, other distributions will be added.')
 # set up population of 330
 N = 330
 # select normal
-dist_type = st.sidebar.radio('Distribution of T', ['Normal', 'Pareto', 'Lognormal', 'Random(1-N)'])
+dist_type = st.sidebar.radio(
+    'Distribution of T', ['Normal', 'Pareto', 'Lognormal', 'Random(1-N)', 'Chisquare'])
 
 if dist_type == 'Normal':
     step = 1
@@ -55,16 +56,16 @@ elif dist_type == 'Random(1-N)':
     min_t = st.sidebar.slider('Min T', min_value=1, max_value=5, value=1, step=1)
     step = 1
     dist = np.random.randint(min_t, max_t+1, N)
-# elif dist_type == "Lognormal":
-#     step = 1
-#     mean = st.sidebar.slider('Mean of Underlying Normal Distribution', min_value=1,
-#                              max_value=10, value=5, step=1)
-#     sd = st.sidebar.slider('sd of Underlying Normal Distribution', min_value=1,
-#                            max_value=3, value=2, step=1)
-#     dist = np.random.lognormal(mean, sd, N)
-#     dist = np.array([int(x)+1 for x in dist])
-#     st.write(dist)
-#     st.write(dist.min(), dist.max())
+elif dist_type == "Chisquare":
+    step = 1
+    k = st.sidebar.slider('Degrees of Freedom', min_value=1,
+                          max_value=10, value=5, step=1)
+    # sd = st.sidebar.slider('sd of Underlying Normal Distribution', min_value=1,
+    #                        max_value=3, value=2, step=1)
+    dist = np.random.chisquare(k, size=N)
+    dist = np.array([int(x)+1 for x in dist])
+    st.write(dist)
+    st.write(dist.min(), dist.max())
 
 # set up streamlit selection of initial number to leave
 exit = st.sidebar.slider('Initial Number of People to Leave',
