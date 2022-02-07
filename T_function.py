@@ -21,7 +21,7 @@ Later, other distributions will be added.')
 N = 330
 # select normal
 dist_type = st.sidebar.radio(
-    'Distribution of T', ['Normal', 'Pareto', 'Lognormal', 'Random(1-N)', 'Chisquare'])
+    'Distribution of T', ['Normal', 'Pareto', 'Random(1-N)', 'Chisquare'])
 
 if dist_type == 'Normal':
     step = 1
@@ -56,6 +56,7 @@ elif dist_type == 'Random(1-N)':
     min_t = st.sidebar.slider('Min T', min_value=1, max_value=5, value=1, step=1)
     step = 1
     dist = np.random.randint(min_t, max_t+1, N)
+# set up Chisquare dist
 elif dist_type == "Chisquare":
     step = 1
     k = st.sidebar.slider('Degrees of Freedom', min_value=1,
